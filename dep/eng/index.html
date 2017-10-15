@@ -26,9 +26,23 @@
     <p style="font-size: 18px;padding-left:3px;">select tower</p>
     <select class="form-control" id="ddlViewBy" onChange="changeOption()">
             <option selected="selected" value="#"></option>         
-            <option value="0">ตึก 1 : อ.เรียนเเละบริการ</option>     
-            <option value="1">ตึก 2 : อ.ป.วิศวกรรมไฟฟ้า</option>
-            <option value="2">ตึก 3 : ศ.คอมพิวเตอร์วิศวกรรม</option>
+            <option value="0">อาคารเรียนและบริหาร (อาคาร 1)</option>
+            <option value="1">อาคารปฏิบัติการวิศวกรรมไฟฟ้า (อาคาร 2)</option>
+            <option value="2">อาคารเรียนคณะ (อาคาร 3)</option>
+            <option value="3">อาคารศูนย์คอมพิวเตอร์วิศวกรรม (อาคาร 4)</option>
+            <option value="4">อาคารปฏิบัติการวิศวกรรมเครื่องกล (อาคาร 5)</option>
+            <option value="5">อาคารปฏิบัติการยานยนต์ (อาคาร 6)</option>
+            <option value="6">อาคารปฏิบัติการวิศวกรรมอุตสาหการ (อาคาร 7)</option>
+            <option value="7">อาคารปฏิบัติการและวิจัย (อาคาร 8)</option>
+            <option value="8">อาคารปฏิบัติการวิศวกรรมโยธา (อาคาร 9 อาคารบุญสมสุวชิรัตน์)</option>
+            <option value="9">อาคารวัสดุธานี (อาคาร 10)</option>
+            <option value="10">อาคารชำนาญเพ็ญชาติ (อาคาร 11 วิศวกรรมสิ่งแวดล้อม)</option>
+            <option value="11">อาคารวิศวกรรมสำรวจและบริหารการก่อสร้าง (อาคาร 12)</option>
+            <option value="12">อาคารปฏิบัติการวิศวกรรมทรัพยากรน้ำ (อาคาร 13)</option>
+            <option value="13">อาคารวิศวกรรมศาสตร์ 60 ปี (อาคารชูชาติกำภู อาคาร 14)</option>
+            <option value="14">อาคารปฏิบัติการคณะวิศวกรรมศาสตร์ (อาคาร 15)</option>
+            <option value="15">อาคารสโมสรนิสิต (อาคาร 16)</option>
+            <option value="16">อาคารเรียนนานาชาติ (อาคาร 17)</option>
     </select></div>
     <div class="container">
     <div style="padding-bottom:10px;"></div>
@@ -74,10 +88,23 @@
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script>
         // declare const var [no.Tower, nameTower, numFloor, floor[room...], srcImage]
+        //in consruction
         const tower = [
         ['1', 'อาคารเรียนและบริการ', '20', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png'],
         ['2', 'อาคารปฏิบัติการวิศวกรรมไฟฟ้า', '100', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png'],
-        ['3', 'ศูนย์คอมพิวเตอร์วิศวกรรม', '200', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png']
+        ['3', 'ศูนย์คอมพิวเตอร์วิศวกรรม', '200', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png'],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        ['15', 'อาคารปฏิบัติการคณะวิศวกรรมศาสตร์ (วิศวกรรมคอมพิวเตอร์)', '9',[[],['201','202','203','204']], '../../img/eng/E15.png'],
         ]
 
 
