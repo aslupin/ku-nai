@@ -25,7 +25,7 @@
     <div style="padding-bottom:5px;"></div>
     <p style="font-size: 18px;padding-left:3px;">เลือกอาคาร</p>
     <select class="form-control" id="ddlViewBy" onChange="changeOption()">
-            <option selected="selected" value="#"></option>         
+            <option selected="selected" value="#">เลือกอาคาร :</option>         
             <option value="0">อาคารเรียนและบริหาร (อาคาร 1)</option>
             <option value="1">อาคารปฏิบัติการวิศวกรรมไฟฟ้า (อาคาร 2)</option>
             <option value="2">อาคารเรียนคณะ (อาคาร 3)</option>
@@ -89,24 +89,7 @@
     <script>
         // declare const var [no.Tower, nameTower, numFloor, floor[room...], srcImage]
         //in consruction
-        const tower = [
-        ['1', 'อาคารเรียนและบริการ', '20', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png'],
-        ['2', 'อาคารปฏิบัติการวิศวกรรมไฟฟ้า', '100', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png'],
-        ['3', 'ศูนย์คอมพิวเตอร์วิศวกรรม', '200', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png'],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        ['15', 'อาคารปฏิบัติการคณะวิศวกรรมศาสตร์ (วิศวกรรมคอมพิวเตอร์)', '9',[[],['201','202','203','204']], '../../img/eng/E15.png'],
-        ]
-
+        const tower = JSON.parse('tower.json') 
 
         function changeOption(){
             // get detail's tower
