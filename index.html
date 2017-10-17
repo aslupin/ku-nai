@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>KU NAI</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <center>
+    <h1 style="font-size:70px">KU NAI</h1>
+    </center>
+    <div style="padding-bottom:40px;"></div>
+    <p style="font-size: 18px;padding-left:8px;">เลือกคณะที่ต้องการจะค้นหา</p>
+    
+    <select class="form-control" onChange="window.location.href=this.value">
+        <option selected="selected" value="#">เลือกคณะ :</option>                 
+        <option value="./dep/eng/index.html">คณะวิศวกรรมศาสตร์</option>     
+    </select>
+    <H3 style="padding-left:8px;">KU-Nai คืออะไร?</H3>
+    <pre><code style="padding-left:20px;">KU-Nai คือเว็บไซต์ที่จะช่วยทุกคนที่ประสบปัญหาในการหาห้องต่างๆในมหาวิทยาลัยเกษตรศาสตร์ ไม่ว่าจะเป็นห้องเรียน ห้องประชุม ฯ เว็บไซต์นี้ เป็นส่วนหนึ่งของรายวิชา ศาสตร์แห่งแผ่นดิน(01999111) ภาคต้น ปีการศึกษา 2560 คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ (วิทยาเขตบางเขน)
+    </code></pre> 
+    <p style="padding-left:8px;font-size:18px;">ข้อมูลต่างๆของโครงการและคณะผู้จัดทำ สามารถติดตามได้ (Github) <a href="https://github.com/aslupin/ku-nai">ที่นี่</a></p>
+    <H3 style="padding-left:8px;">คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเกษตรศาสตร์</H3>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('my_selection').onchange = function() {
+    window.location.href = this.children[this.selectedIndex].getAttribute('href');
+}
+    </script>
+  </body>
+</html>
