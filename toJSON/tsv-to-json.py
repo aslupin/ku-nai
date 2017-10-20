@@ -1,26 +1,9 @@
 import sys
 if len(sys.argv) > 1:
-    f = open(sys.argv[1],"r")
+    f = open(sys.argv[1],"rt")
 else:
     f = ["time\t15\t2\t202\tห้องเรียนเทส"]
-lis = [
-        ['1', 'อาคารเรียนและบริการ', '20', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png'],
-        ['2', 'อาคารปฏิบัติการวิศวกรรมไฟฟ้า', '100', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png'],
-        ['3', 'ศูนย์คอมพิวเตอร์วิศวกรรม', '200', [['101','102'],['201','202'],['301','302']], '../../assets/img/head.png'],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        ['14', 'อาคารวิศวกรรมศาสตร์ 60 ปี (อาคารชูชาติ กำภู)','13',[],'../..//assets/img/eng/e14.png'],
-        ['15', 'อาคารปฏิบัติการคณะวิศวกรรมศาสตร์ (วิศวกรรมคอมพิวเตอร์)', '9',[[],{}], '../../assets/img/eng/E15.png'],
-        ]
-
+lis = eval(open("building.json",'r').read())
 for line in f:
     if "ประทับเวลา" in line:
         continue
@@ -29,3 +12,8 @@ for line in f:
     line = line.split('\t')
     print(line)
     lis[int(line[1]) - 1 ][3][int(line[2]) - 1][line[2]] = line[3]
+#f.write(str(lis).replace('\"','\''))
+realJSON = open("building-updated.json",'w')
+realJSON.write(str(lis).replace('\'','\"'))
+realJSON.close()
+
