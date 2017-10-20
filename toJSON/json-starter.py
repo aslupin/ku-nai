@@ -11,7 +11,7 @@ for line in f:
     line = line.split()
     level = []
     for i in range(int(line[2])):
-        level.append([])
+        level.append({})
     lis.append([line[0],line[1],line[2],level])
 printlis(lis)
 f.close()
