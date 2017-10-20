@@ -5,4 +5,6 @@ count = 1
 for line in f:
     print(line)
     line = line.split(" (")
-    lis.append([])
+    lis.append([str(count),line[0]])
+    count += 1
+print(lis)
