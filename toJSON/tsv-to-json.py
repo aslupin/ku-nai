@@ -15,6 +15,6 @@ for line in f:
     lis[int(line[1]) - 1 ][3][int(line[2]) - 1][line[3]] = line[4]
 #f.write(str(lis).replace('\"','\''))
 realJSON = open("building-updated.json",'w')
-realJSON.write(str(lis).replace('\'','\"'))
+realJSON.write(str(lis).replace('\'','\"').replace('\\n',''))
 realJSON.close()
 
