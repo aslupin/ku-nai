@@ -1,9 +1,10 @@
 import sys
+from jsonStarter import baseList as BL
 if len(sys.argv) > 1:
     f = open(sys.argv[1],"rt")
 else:
     f = ["time\t15\t2\t202\tห้องเรียนเทส"]
-lis = eval(open("building.json",'r').read())
+lis = BL()
 for line in f:
     if "ประทับเวลา" in line:
         continue
