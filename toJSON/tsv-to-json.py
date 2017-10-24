@@ -13,7 +13,7 @@ for line in f:
     #[["1", "อาคารเรียนและบริหาร", "5", [{}, {}, {}, {}, {}]],
     line = line.split('\t')
     print(line)
-    lis[int(line[1]) - 1 ][3][int(line[2]) - 1][line[3]] = line[4]
+    lis[int(line[1]) - 1 ][3][int(line[2]) - 1].append([line[3],line[4]])
 #f.write(str(lis).replace('\"','\''))
 realJSON = open("building-updated.json",'w')
 realJSON.write(str(lis).replace('\'','\"').replace('\\n',''))
