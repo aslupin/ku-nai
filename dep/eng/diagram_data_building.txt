@@ -1,0 +1,40 @@
+
+// data = '[ [No_building, Name_buildingm, n_of_floorm, ""] ]';
+data = '[
+    
+    [   var No_building ,
+        var Name_building , 
+        var n_of_floor ,
+        
+        "floor": {
+            "floor1": {
+                "3101" : "bra bra",
+                "3102" : "oo oo"
+            },
+            "floor2": {
+                "3201" : "bra bra",
+                "3202" : "oo oo"
+            }
+        },
+        
+        var src_map
+    ],
+    [   var No_building ,
+        var Name_building , 
+        var n_of_floor ,
+        
+        "floor": {
+            "floor1": {
+                "3101" : "bra bra",
+                "3102" : "oo oo"
+            },
+            "floor2": {
+                "3201" : "bra bra",
+                "3202" : "oo oo"
+            }
+        },
+        
+        var src_map
+    ]
+
+]';
