@@ -67,24 +67,20 @@
                 </div>
         </div>
         <div style="padding-bottom:15px;"></div>
-        <!-- <div class="row">
-                        <div class="col-xs-6 col-md-3">
-                                <p style="font-size: 18px;padding-left:3px;">Floor / ชั้น </p>
-                                <div id="showRoom"></div>
+        <div class="row">
+                        
+                        <div class="col-xs-12 col-md-9">
+                            <div id="tableRoom"></div>
                         </div>
-                        <div class="col-xs-6 col-md-6">
-                                <p style="font-size: 18px;padding-left:3px;">Detail / รายละเอียด</p>
-                               <div id="showDetailRoom"></div>
-                        </div>
-                        <div class="col-md-3"></div>
-                </div>       -->
+                        <div class="col-md-2"></div>
+                </div>      
     </div>
-    <center><div id="tableRoom"></div></center>
+    
     <div style="padding-bottom:40px;"></div>
         <!-- <div class="container"> -->
         <center><a class="btn btn-default btn-lg" href="../.././index.html" target="_blank">เลือกคณะอื่น</a></center>
     <!-- </div>  -->
-    
+    <div style="padding-bottom:40px;"></div>
         
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -92,35 +88,10 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="tower.json"></script>
-    <script type="text/javascript" src="data_test.json"></script>
     <script>
         
         var tower = JSON.parse(building);
-          // alert(tower[2][3][0][0][0]);
-          // alert(tower[2][3][0][0][1]);
-        
-        // declare const var [no.Tower, nameTower, numFloor, floor[room...], srcImage]
-        //in consruction
-
-        // const tower = [
-        // ['1', 'อาคารเรียนและบริการ', '20', [['101','102'],['201','202'],['301','302']], '../../assets/img/eng/e15.png'],
-        // ['2', 'อาคารปฏิบัติการวิศวกรรมไฟฟ้า', '100', [['101','102'],['201','202'],['301','302']], '../../assets/img/eng/e15.png'],
-        // ['3', 'ศูนย์คอมพิวเตอร์วิศวกรรม', '200', [[['101','a'],['102'],['201','202'],['301','302']], '../../assets/img/eng/e15.png'],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // ['15', 'อาคารปฏิบัติการคณะวิศวกรรมศาสตร์ (วิศวกรรมคอมพิวเตอร์)', '9',[[],['201','202','203','204']], '../../assets/img/eng/e15.png'],
-        // ]
-
-
+      
         function changeOption(){
             // get detail's tower
             var e = document.getElementById("ddlViewBy");
@@ -157,58 +128,57 @@
             var val_floor = e_floor.options[e_floor.selectedIndex].value;
             shRoom = tower[val_dep][3][val_floor];
             
-            var max = shRoom.length,
-            txt_room="",
-            txt_room_detail="";
-            tableCreate(max,shRoom);
-
-            for(var itr = 0;itr < max;itr++){
-              txt_room += shRoom[itr][0] + '<br>';
-              txt_room_detail += shRoom[itr][1] + '<br>';
-            }
-            
-            document.getElementById("showRoom").innerHTML = txt_room;
-            document.getElementById("showDetailRoom").innerHTML = txt_room_detail;
+            var max = shRoom.length;
+            if(max == 0){ tableNoRoom() }
+            else{ tableCreate(max,shRoom); }
         }
 
+        function tableNoRoom(){
+          var table_room = document.getElementById("tableRoom");
+          table_room.innerHTML = "";
+          var noroom = document.createTextNode("ขออภัยในความไม่สะดวก");
+          table_room.appendChild(noroom);
+          noroom = document.createElement('br');
+          table_room.appendChild(noroom);
+          noroom = document.createTextNode("ข้อมูลภายในชั้นนี้ยังไม่มีการอัพเดท ครับ/ค่ะ");
+          table_room.appendChild(noroom);
+        }
+        
         // https://stackoverflow.com/questions/14643617/create-table-using-javascript
         function tableCreate(max,shRoom){
             var table_room = document.getElementById("tableRoom");
             table_room.innerHTML = "";
             var tbl  = document.createElement('table');
             tbl.style.width  = "100%";
+            tbl.className = "table table-bordered"
             
 
             for(var i = -1; i < max; i++){
-                var tr = tbl.insertRow();
-                var td_start = tr.insertCell(),td_end = tr.insertCell();
-                td_start.appendChild(document.createTextNode(''));
-                td_start.style.width = "2%"
+                var tbody = tbl.createTBody()
+                var thead = tbl.createTHead()
+                var tr = tbody.insertRow();
+                var the_tr = thead.insertRow();
+              
                 for(var j = 0; j < 2; j++){
-                        var td = tr.insertCell();
+
                         if(i == -1){
-                          if(j==0){
-                            td.appendChild(document.createTextNode("Room / ชั้น"));
-                          }
-                          else{
-                            td.appendChild(document.createTextNode("Detail / รายละเอียด"));
-                          } 
+                          var the_td = the_tr.insertCell();
+                          if(j==0){ the_td.appendChild(document.createTextNode("ห้อง"));}
+                          else{ the_td.appendChild(document.createTextNode("รายละเอียด"));} 
                         }
                         else{
+                          var td = tr.insertCell();
                           td.appendChild(document.createTextNode(shRoom[i][j]));
-                        }
-                        if(j==0){
-                          td.style.width = "20%"
-                        }
-                        else{
-                          td.style.width = "70%"  
-                        }
+                            if(j==0){ td.style.width = "20%"; }
+                            else{ td.style.width = "70%"; }
                         td.style.border = "0px";
+                        }
+                        
                         
                       
                 }
-                td_end.appendChild(document.createTextNode(''));
-                td_end.style.width = "8%"
+                // td_end.appendChild(document.createTextNode(''));
+                // td_end.style.width = "8%"
             }
             table_room.appendChild(tbl);
         }

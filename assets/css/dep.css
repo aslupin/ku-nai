@@ -21,6 +21,20 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
+   
+    width: 100%;
+    height: 100%;
+    background: url(../../assets/img/eng/bg.png) center;
+    background-repeat: repeat;
+    background-position: center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+   
+   
+/*    
     background: url(../../assets/img/eng/eng.jpg) no-repeat center center scroll;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -28,7 +42,7 @@ body {
     background-size: cover;
     -o-background-size: cover;
     background-image: url(../../assets/img/eng/bg.png);
-    margin-top: -20px;  
+    margin-top: -20px;   */
 }
 
 
