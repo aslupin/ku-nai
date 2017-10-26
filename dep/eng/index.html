@@ -22,7 +22,7 @@
     <header id="top" class="header">
     </header>
     <div class="container">
-    <div style="padding-bottom:5px;"></div>
+    <div style="padding-bottom:15px;"></div>
     <p style="font-size: 18px;padding-left:3px;">เลือกอาคาร</p>
     <select class="form-control" id="ddlViewBy" onChange="changeOption()">
             <option selected="selected" value="#">เลือกอาคาร :</option>         
@@ -67,7 +67,7 @@
                 </div>
         </div>
         <div style="padding-bottom:15px;"></div>
-        <div class="row">
+        <!-- <div class="row">
                         <div class="col-xs-6 col-md-3">
                                 <p style="font-size: 18px;padding-left:3px;">Floor / ชั้น </p>
                                 <div id="showRoom"></div>
@@ -77,8 +77,9 @@
                                <div id="showDetailRoom"></div>
                         </div>
                         <div class="col-md-3"></div>
-                </div>      
+                </div>       -->
     </div>
+    <center><div id="tableRoom"></div></center>
     <div style="padding-bottom:40px;"></div>
         <!-- <div class="container"> -->
         <center><a class="btn btn-default btn-lg" href="../.././index.html" target="_blank">เลือกคณะอื่น</a></center>
@@ -143,7 +144,8 @@
             opt.innerHTML = "ชั้นที่ " + floor;
             select.appendChild(opt);
             }
-            getRoom()
+            getRoom();
+            
             
           
         }
@@ -158,7 +160,8 @@
             var max = shRoom.length,
             txt_room="",
             txt_room_detail="";
-            
+            tableCreate(max,shRoom);
+
             for(var itr = 0;itr < max;itr++){
               txt_room += shRoom[itr][0] + '<br>';
               txt_room_detail += shRoom[itr][1] + '<br>';
@@ -169,30 +172,47 @@
         }
 
         // https://stackoverflow.com/questions/14643617/create-table-using-javascript
-        function tableCreate(){
-            var body = document.body,
-                tbl  = document.createElement('table');
-            tbl.style.width  = '100px';
-            tbl.style.border = '0px';
+        function tableCreate(max,shRoom){
+            var table_room = document.getElementById("tableRoom");
+            table_room.innerHTML = "";
+            var tbl  = document.createElement('table');
+            tbl.style.width  = "100%";
+            
 
-            for(var i = 0; i < 3; i++){
+            for(var i = -1; i < max; i++){
                 var tr = tbl.insertRow();
+                var td_start = tr.insertCell(),td_end = tr.insertCell();
+                td_start.appendChild(document.createTextNode(''));
+                td_start.style.width = "2%"
                 for(var j = 0; j < 2; j++){
-                    if(i == 2 && j == 1){
-                        break;
-                    } else {
                         var td = tr.insertCell();
-                        td.appendChild(document.createTextNode('Cell'));
-                        td.style.border = '1px solid black';
-                        if(i == 1 && j == 1){
-                            td.setAttribute('rowSpan', '2');
+                        if(i == -1){
+                          if(j==0){
+                            td.appendChild(document.createTextNode("Room / ชั้น"));
+                          }
+                          else{
+                            td.appendChild(document.createTextNode("Detail / รายละเอียด"));
+                          } 
                         }
-                    }
+                        else{
+                          td.appendChild(document.createTextNode(shRoom[i][j]));
+                        }
+                        if(j==0){
+                          td.style.width = "20%"
+                        }
+                        else{
+                          td.style.width = "70%"  
+                        }
+                        td.style.border = "0px";
+                        
+                      
                 }
+                td_end.appendChild(document.createTextNode(''));
+                td_end.style.width = "8%"
             }
-            body.appendChild(tbl);
+            table_room.appendChild(tbl);
         }
-        tableCreate();
+        // tableCreate();
 
 
         
