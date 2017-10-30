@@ -102,7 +102,12 @@
     <script>
         
         var tower = JSON.parse(building);
-      
+        if (typeof window.orientation !== 'undefined'){
+            alert("smart");
+        }
+        else{
+            alert("wind")
+        }
         function changeOption(){
             // get detail's tower
             var e = document.getElementById("ddlViewBy");
