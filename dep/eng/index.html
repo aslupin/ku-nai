@@ -103,18 +103,16 @@
         
         var tower = JSON.parse(building);
         
-        detectDevice();
+        
 
-        function detectDevice(){
+        function detectDevice(tower,val){
         if (typeof window.orientation !== 'undefined'){
-            // detect smart
-            // setStyle('top', {'width': '100%','position': 'relative','display': 'table','height': '40%','background': 'url(../../assets/img/eng/Eng.jpg) no-repeat center center scroll'});
-            setStyle('top', {'background': 'url(../../assets/img/eng/Eng.jpg) no-repeat center center scroll'});
+            // detect mobile
+            document.getElementById("top").style.backgroundImage = "url(" + tower[val][4].replace('/img/eng/','/img/eng/mb/') + ")";
         }
         else{ 
             // detect window
-            // setStyle('top', {'width': '100%','position': 'relative','display': 'table','height': '100%','background': 'url(../../assets/img/eng/Eng.jpg) no-repeat center center scroll'});
-            setStyle('top', {'background': 'url(../../assets/img/eng/e1.png) no-repeat center center scroll'});
+            document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
         }
         }
 
@@ -131,7 +129,8 @@
             document.getElementById("noTower").innerHTML ='อาคารที่ : ' + tower[val][0];
             document.getElementById("nameTower").innerHTML ='ชื่ออาคาร : ' + tower[val][1];
             document.getElementById("numFloor").innerHTML ='มีจำนวนชั้น : ' + tower[val][2] + ' ชั้น';
-            document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
+            detectDevice(tower,val);
+            // document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
             
             
             // get room in the floor
