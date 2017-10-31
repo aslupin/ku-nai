@@ -29,10 +29,23 @@
     <![endif]-->
   </head>
   <body>
-    <header id="top" class="header">
-    </header>
-    <div class="container">
+    <header id="top" class="header"></header>
     <div style="padding-bottom:15px;"></div>
+    
+    <!-- <div class="container"> -->
+            <!-- <div class="row">
+                    <div class="col-xs-7 col-md-7"> -->
+<!--                     
+                    </div>
+                    <div class="col-xs-5 col-md-5"> -->
+                            
+                
+                    <!-- </div>
+                    
+            </div>        
+    </div> -->
+    
+    <div class="container">
     <p style="font-size: 18px;padding-left:3px;">เลือกอาคาร</p>
     <select class="form-control" id="ddlViewBy" onChange="changeOption()">
             <option selected="selected" value="#">เลือกอาคาร :</option>         
@@ -85,7 +98,18 @@
                         <div class="col-md-2"></div>
                 </div>      
     </div>
-    
+    <div class="container">
+            <form class="form-inline">
+                    <div class="form-group">
+                            <label style="font-size: 18px;padding-left:3px;">หาห้อง</label>
+                            <input type="text" class="form-control" id="search_room" placeholder="ใส่เลขห้อง เช่น 201">
+                            <a class="btn btn-default btn-lg" onclick="shRoom()">ห้องอยู่ไหน</a>
+                    </div>
+            </form>
+                            <div style="padding-bottom:12px;"></div>
+                            <div id="shShowRoom"></div>
+
+    </div>
     <div style="padding-bottom:40px;"></div>
         <!-- <div class="container"> -->
         <center><a class="btn btn-default btn-lg" href="../.././">เลือกคณะอื่น</a></center>
@@ -102,8 +126,80 @@
     <script>
         
         var tower = JSON.parse(building);
+        // alert(tower);
+        // searchRoom(here);
+
+
         
         
+        function shRoom(){
+            var shroom = document.getElementById("search_room").value;
+            searchRoom(shroom);
+        }
+        
+        function searchRoom(here){
+            var sh_show = document.getElementById("shShowRoom");
+            sh_show.innerHTML = "";
+            var first = 1;
+            var tbl = null;
+            
+            for(i=0;i<tower.length;i++){
+                // alert(tower[i][]);
+                for(j=0;j<tower[i][3].length;j++){
+                    for(k=0;k<tower[i][3][j].length;k++){
+                        console.log(tower[i][1],tower[i][3][j][k][0])
+                        if(tower[i][3][j][k][0] == here){
+                                
+                                if(first == 1){
+                                first = 0;
+                                tbl  = document.createElement('table');
+                                tbl.style.width  = "100%";
+                                tbl.className = "table table-bordered"; 
+                                
+                                var thead = tbl.createTHead();
+                                var the_tr = thead.insertRow();
+                                var the_td = the_tr.insertCell();
+                                
+                                the_td.appendChild(document.createTextNode("เจอ! ห้องแล้ว"));
+                                var the_td = the_tr.insertCell();
+                                the_td.appendChild(document.createTextNode("รายละเอียด"));
+                                var the_td = the_tr.insertCell();
+                                the_td.appendChild(document.createTextNode("เจอ! อาคารแล้ว"));
+                                
+                            }
+                            var tbody = tbl.createTBody()    
+                                    var tr = tbody.insertRow();
+                                    for(var z = 0; z < 3; z++){     
+                                        if(z==2){
+                                            var td = tr.insertCell();
+                                            td.appendChild(document.createTextNode(tower[i][1]));
+                                        }
+                                        else{
+                                            var td = tr.insertCell();
+                                            td.appendChild(document.createTextNode(tower[i][3][j][k][z]));
+                                        }
+                                                
+                                                if(z==2 || z==1){ td.style.width = "42%"; }
+                                                else{ td.style.width = "16%"; }
+                                            td.style.border = "0px";
+                                    }
+                                    // td_end.appendChild(document.createTextNode(''));
+                                    // td_end.style.width = "8%"
+                                // }
+                                
+        
+                            
+                            
+
+                        
+                       
+                   }
+                }
+               }
+            }
+            sh_show.appendChild(tbl);
+            
+        }
 
         function detectDevice(tower,val){
         if (typeof window.orientation !== 'undefined'){
@@ -114,12 +210,6 @@
             // detect window
             document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
         }
-        }
-
-        function setStyle(objId, propertyObject ){
-            var elem = document.getElementById(objId);
-            for (var property in propertyObject)
-                elem.style[property] = propertyObject[property];
         }
 
         function changeOption(){
