@@ -33,7 +33,7 @@
     <div style="padding-bottom:15px;"></div>
 
     <blockquote style="padding-left: 10px;">
-            <h2 style="font-size: 20px;"> | ตัวเลือกที่ 1 ></h2>
+            <label style="font-size: 20px;"> | ตัวเลือกที่ 1 ></label>
     </blockquote>
     
     <!-- <div class="container"> -->
@@ -104,12 +104,12 @@
     </div>
     <div style="padding-bottom:10px;"></div>
     <blockquote style="padding-left: 10px;">
-    <h2 style="font-size: 20px;"> | ตัวเลือกที่ 2 ></h2>
+    <label style="font-size: 20px;"> | ตัวเลือกที่ 2 ></label>
     </blockquote>
     <div class="container">
             <form class="form-inline">
                     <div class="form-group">
-                            <label style="font-size: 18px;padding-left:3px;">หาห้อง</label>
+                            <p style="font-size: 18px;padding-left:3px;">หาห้อง</p>
                             <input type="text" class="form-control" id="search_room" placeholder="ใส่เลขห้อง เช่น 201">
                             <a class="btn btn-default" onClick="shhRoom()" >ห้องอยู่ไหน ?</a>
                             
@@ -224,7 +224,6 @@
         function detectDevice(tower,val){
         if (typeof window.orientation !== 'undefined'){
             // detect mobile
-            alert("tt")
             document.getElementById("top").style.backgroundImage = "url(" + tower[val][4].replace('/img/eng/','/img/eng/mb/') + ")";
         }
         else{ 
