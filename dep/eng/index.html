@@ -224,6 +224,7 @@
         function detectDevice(tower,val){
         if (typeof window.orientation !== 'undefined'){
             // detect mobile
+            alert("tt")
             document.getElementById("top").style.backgroundImage = "url(" + tower[val][4].replace('/img/eng/','/img/eng/mb/') + ")";
         }
         else{ 
