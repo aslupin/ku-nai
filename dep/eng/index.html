@@ -98,12 +98,14 @@
                         <div class="col-md-2"></div>
                 </div>      
     </div>
+    <div style="padding-bottom:15px;"></div>
     <div class="container">
             <form class="form-inline">
                     <div class="form-group">
                             <label style="font-size: 18px;padding-left:3px;">หาห้อง</label>
                             <input type="text" class="form-control" id="search_room" placeholder="ใส่เลขห้อง เช่น 201">
-                            <a class="btn btn-default btn-lg" onclick="shRoom()">ห้องอยู่ไหน</a>
+                            <!-- <a class="btn btn-default btn-lg" onClick="shhRoom()">ห้องอยู่ไหน</a> -->
+                            <button type="submit" class="btn btn-default" onClick="shhRoom()">ห้องอยู่ไหน</button>
                     </div>
             </form>
                             <div style="padding-bottom:12px;"></div>
@@ -132,56 +134,53 @@
 
         
         
-        function shRoom(){
-            var shroom = document.getElementById("search_room").value;
-            searchRoom(shroom);
-        }
+        
         
         function searchRoom(here){
-            var sh_show = document.getElementById("shShowRoom");
-            sh_show.innerHTML = "";
+            var shf_show = document.getElementById("shShowRoom");
+            shf_show.innerHTML = "";
             var first = 1;
-            var tbl = null;
+            var tblf = null;
             
             for(i=0;i<tower.length;i++){
                 // alert(tower[i][]);
                 for(j=0;j<tower[i][3].length;j++){
                     for(k=0;k<tower[i][3][j].length;k++){
                         console.log(tower[i][1],tower[i][3][j][k][0])
-                        if(tower[i][3][j][k][0] == here){
+                        if(tower[i][3][j][k][0] == here || tower[i][3][j][k][1] == here){
                                 
                                 if(first == 1){
                                 first = 0;
-                                tbl  = document.createElement('table');
-                                tbl.style.width  = "100%";
-                                tbl.className = "table table-bordered"; 
+                                tblf  = document.createElement('table');
+                                tblf.style.width  = "100%";
+                                tblf.className = "table table-bordered"; 
                                 
-                                var thead = tbl.createTHead();
-                                var the_tr = thead.insertRow();
-                                var the_td = the_tr.insertCell();
+                                var theadf = tblf.createTHead();
+                                var the_trf = theadf.insertRow();
+                                var the_tdf = the_trf.insertCell();
                                 
-                                the_td.appendChild(document.createTextNode("เจอ! ห้องแล้ว"));
-                                var the_td = the_tr.insertCell();
-                                the_td.appendChild(document.createTextNode("รายละเอียด"));
-                                var the_td = the_tr.insertCell();
-                                the_td.appendChild(document.createTextNode("เจอ! อาคารแล้ว"));
+                                the_tdf.appendChild(document.createTextNode("เจอ!ห้องแล้ว"));
+                                var the_tdf = the_trf.insertCell();
+                                the_tdf.appendChild(document.createTextNode("รายละเอียด"));
+                                var the_tdf = the_trf.insertCell();
+                                the_tdf.appendChild(document.createTextNode("เจอ!อาคารแล้ว"));
                                 
                             }
-                            var tbody = tbl.createTBody()    
-                                    var tr = tbody.insertRow();
+                            var tbodyf = tblf.createTBody()    
+                                    var trf = tbodyf.insertRow();
                                     for(var z = 0; z < 3; z++){     
                                         if(z==2){
-                                            var td = tr.insertCell();
-                                            td.appendChild(document.createTextNode(tower[i][1]));
+                                            var tdf = trf.insertCell();
+                                            tdf.appendChild(document.createTextNode(tower[i][1]));
                                         }
                                         else{
-                                            var td = tr.insertCell();
-                                            td.appendChild(document.createTextNode(tower[i][3][j][k][z]));
+                                            var tdf = trf.insertCell();
+                                            tdf.appendChild(document.createTextNode(tower[i][3][j][k][z]));
                                         }
                                                 
-                                                if(z==2 || z==1){ td.style.width = "42%"; }
-                                                else{ td.style.width = "16%"; }
-                                            td.style.border = "0px";
+                                                if(z==2 || z==1){ tdf.style.width = "42%"; }
+                                                else{ tdf.style.width = "16%"; }
+                                            tdf.style.border = "0px";
                                     }
                                     // td_end.appendChild(document.createTextNode(''));
                                     // td_end.style.width = "8%"
@@ -197,7 +196,16 @@
                 }
                }
             }
-            sh_show.appendChild(tbl);
+            shf_show.appendChild(tblf);
+            if(first == 1){
+
+                shf_show.innerHTML = "";
+                var noroomm = document.createTextNode("ไม่เจอห้องที่คุณต้องการ ครับ/ค่ะ");
+                shf_show.appendChild(noroomm);
+                
+                
+
+            }
             
         }
 
@@ -305,7 +313,11 @@
         }
         // tableCreate();
 
-
+        function shhRoom(){
+            var sh_Room = document.getElementById("search_room");
+            sh_Room.innerHTML = searchRoom(sh_Room.value);
+            // searchRoom(document.getElementById("search_room").value);
+        }
         
     </script>
   </body>
