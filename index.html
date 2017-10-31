@@ -40,7 +40,8 @@
                     <div style="padding-bottom:40px;"></div>
             <p style="font-size: 18px;padding-left:8px;">เลือกคณะที่ต้องการจะค้นหา</p>
             
-            <select class="form-control" onChange="window.location.href=this.value">
+            <!-- <select class="form-control" onChange="window.location.href=this.value"> -->
+            <select class="form-control" id="myselection" onChange="mySelection()" >
                 <option selected="selected" value="#">เลือกคณะ :</option>                 
                 <option value="./dep/eng/">คณะวิศวกรรมศาสตร์</option>     
             </select>
@@ -61,9 +62,12 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('my_selection').onchange = function() {
-    window.location.href = this.children[this.selectedIndex].getAttribute('href');
-}
+
+      function mySelection(){
+        var mysel = document.getElementById("myselection");
+        if(mysel.value != '#'){window.location.href= mysel.value;}
+        
+      }
     </script>
   </body>
 </html>

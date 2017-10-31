@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>KU NAI - Faculty of Engineering</title>
-    <link rel="shortcut icon" href="../../assets/img/favicon.ico" />
+
     <!-- Bootstrap -->
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -31,6 +31,10 @@
   <body>
     <header id="top" class="header"></header>
     <div style="padding-bottom:15px;"></div>
+
+    <blockquote style="padding-left: 10px;">
+            <h2 style="font-size: 20px;"> | ตัวเลือกที่ 1 ></h2>
+    </blockquote>
     
     <!-- <div class="container"> -->
             <!-- <div class="row">
@@ -98,21 +102,24 @@
                         <div class="col-md-2"></div>
                 </div>      
     </div>
-    <div style="padding-bottom:15px;"></div>
+    <div style="padding-bottom:10px;"></div>
+    <blockquote style="padding-left: 10px;">
+    <h2 style="font-size: 20px;"> | ตัวเลือกที่ 2 ></h2>
+    </blockquote>
     <div class="container">
             <form class="form-inline">
                     <div class="form-group">
                             <label style="font-size: 18px;padding-left:3px;">หาห้อง</label>
                             <input type="text" class="form-control" id="search_room" placeholder="ใส่เลขห้อง เช่น 201">
-                            <!-- <a class="btn btn-default btn-lg" onClick="shhRoom()">ห้องอยู่ไหน</a> -->
-                            <button type="submit" class="btn btn-default" onClick="shhRoom()">ห้องอยู่ไหน</button>
+                            <a class="btn btn-default" onClick="shhRoom()" >ห้องอยู่ไหน ?</a>
+                            
                     </div>
             </form>
                             <div style="padding-bottom:12px;"></div>
                             <div id="shShowRoom"></div>
 
     </div>
-    <div style="padding-bottom:40px;"></div>
+    <div style="padding-bottom:17px;"></div>
         <!-- <div class="container"> -->
         <center><a class="btn btn-default btn-lg" href="../.././">เลือกคณะอื่น</a></center>
         <!-- <center><a class="btn btn-default btn-lg" href="../.././index.html">เลือกคณะอื่น</a></center> -->
@@ -196,7 +203,8 @@
                 }
                }
             }
-            shf_show.appendChild(tblf);
+
+            
             if(first == 1){
 
                 shf_show.innerHTML = "";
@@ -205,6 +213,9 @@
                 
                 
 
+            }
+            else{
+                shf_show.appendChild(tblf);
             }
             
         }
