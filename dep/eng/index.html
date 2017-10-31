@@ -208,8 +208,9 @@
             if(first == 1){
 
                 shf_show.innerHTML = "";
-                var noroomm = document.createTextNode("ไม่เจอห้องที่คุณต้องการ ครับ/ค่ะ");
+                var noroomm = document.createTextNode("ไม่เจอห้องที่คุณต้องการ ครับ/ค่ะ"); 
                 shf_show.appendChild(noroomm);
+                shf_show.style.color = "#b33c00";
                 
                 
 
@@ -282,6 +283,7 @@
           table_room.appendChild(noroom);
           noroom = document.createTextNode("ข้อมูลภายในชั้นนี้ยังไม่มีการอัพเดท ครับ/ค่ะ");
           table_room.appendChild(noroom);
+          table_room.style.color = "#b33c00";
         }
         
         // https://stackoverflow.com/questions/14643617/create-table-using-javascript
