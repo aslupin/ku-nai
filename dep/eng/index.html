@@ -222,14 +222,14 @@
         }
 
         function detectDevice(tower,val){
-        // if (typeof window.orientation !== 'undefined'){
-        //     // detect mobile
-        //     document.getElementById("top").style.backgroundImage = "url(" + tower[val][4].replace('/img/eng/','/img/eng/mb/') + ")";
-        // }
-        // else{ 
-        //     // detect window
+        if (typeof window.orientation !== 'undefined'){
+            // detect mobile
+            document.getElementById("top").style.backgroundImage = "url(" + tower[val][4].replace('/img/eng/','/img/eng/mb/') + ")";
+        }
+        else{ 
+            // detect window
             document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
-        // }
+        }
         }
 
         function changeOption(){
@@ -239,8 +239,8 @@
             document.getElementById("noTower").innerHTML ='อาคารที่ : ' + tower[val][0];
             document.getElementById("nameTower").innerHTML ='ชื่ออาคาร : ' + tower[val][1];
             document.getElementById("numFloor").innerHTML ='มีจำนวนชั้น : ' + tower[val][2] + ' ชั้น';
-            detectDevice(tower,val);
-            // document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
+            // detectDevice(tower,val);
+            document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
             
             
             // get room in the floor
