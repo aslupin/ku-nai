@@ -240,7 +240,7 @@
             document.getElementById("nameTower").innerHTML ='ชื่ออาคาร : ' + tower[val][1];
             document.getElementById("numFloor").innerHTML ='มีจำนวนชั้น : ' + tower[val][2] + ' ชั้น';
             // detectDevice(tower,val);
-            document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
+            document.getElementById("top").style.backgroundImage = "url(" + tower[val][4].replace('/img/eng/','/img/eng/mb/') + ")";
             
             
             // get room in the floor
