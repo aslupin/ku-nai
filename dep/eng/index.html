@@ -98,7 +98,7 @@
             <form class="form-inline">
                     <div class="form-group">
                             <p style="font-size: 18px;padding-left:3px;">หาห้อง</p>
-                            <!-- <input type="text" class="form-control" id="search_room" placeholder="ใส่เลขห้อง เช่น 201"> -->
+                            <input type="text" class="form-control" placeholder="ใส่เลขห้อง เช่น 201">
                             
                             <button type="button" class="btn btn-default" onClick="shhRoom()" >ห้องอยู่ไหน ?</button>
                             
@@ -317,9 +317,9 @@
         // tableCreate();
 
         function shhRoom(){
-            var shf_Room = document.getElementById("search_room");
-            shf_Room.innerHTML = searchRoom(shf_Room.value);
-            // searchRoom(document.getElementById("search_room").value);
+            // var shf_Room = document.getElementById("search_room");
+            // shf_Room.innerHTML = searchRoom(shf_Room.value);
+            searchRoom(document.getElementById("search_room").value);
         }
         
     </script>
