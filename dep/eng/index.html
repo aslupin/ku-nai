@@ -36,9 +36,20 @@
             <label style="font-size: 20px;"> | ตัวเลือกที่ 1 ></label>
     </blockquote>
     
+    <!-- <div class="container"> -->
+            <!-- <div class="row">
+                    <div class="col-xs-7 col-md-7"> -->
+<!--                     
+                    </div>
+                    <div class="col-xs-5 col-md-5"> -->
+                            
+                
+                    <!-- </div>
+                    
+            </div>        
+    </div> -->
     
     <div class="container">
-        <div class="row">
     <p style="font-size: 18px;padding-left:3px;">เลือกอาคาร</p>
     <select class="form-control" id="ddlViewBy" onChange="changeOption()">
             <option selected="selected" value="#">เลือกอาคาร :</option>         
@@ -59,16 +70,15 @@
             <option value="14">อาคาร 15: อาคารปฏิบัติการคณะวิศวกรรมศาสตร์ </option>
             <option value="15">อาคาร 16: อาคารสโมสรนิสิต </option>
             <option value="16">อาคาร 17: อาคารเรียนนานาชาติ </option>
-    </select></div></div>
+    </select></div>
     <div class="container">
-        <div class="row">
     <div style="padding-bottom:10px;"></div>
     <div style="padding-left:5px;">
     <div id="noTower"></div>
     <div id="nameTower"></div>
     <div id="numFloor"></div>
     </div>
-    </div></div>
+    </div>
 
     <div style="padding-bottom:15px;"></div>
     <div class="container">
@@ -96,13 +106,13 @@
     <blockquote style="padding-left: 10px;">
     <label style="font-size: 20px;"> | ตัวเลือกที่ 2 ></label>
     </blockquote>
-    <!-- <div class="container"> -->
+    <div class="container">
         <!-- <div class="row"> -->
             <form class="form-inline">
                     <div class="form-group">
                             <p style="font-size: 18px;padding-left:3px;">หาห้อง</p>
                             <input type="text" class="form-control" id="search_room" placeholder="ใส่เลขห้อง เช่น 201"></input>
-                            <a class="btn btn-default btn-lg" onClick="shhRoom()" >ห้องอยู่ไหน ?</a>
+                            <p class="btn btn-default btn-lg" onClick="shhRoom()" >ห้องอยู่ไหน ?</p>
                             <!-- <button type="summit" onClick="shhRoom()" >ห้องอยู่ไหน ?</button> -->
                             
                     </div>
@@ -112,7 +122,7 @@
             <div id="shShowRoom"></div>
         <!-- </div> -->
 
-    <!-- </div> -->
+    </div>
     <div style="padding-bottom:17px;"></div>
         <!-- <div class="container"> -->
         <center><a class="btn btn-default btn-lg" href="../.././">เลือกคณะอื่น</a></center>
