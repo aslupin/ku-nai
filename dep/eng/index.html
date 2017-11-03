@@ -10,7 +10,6 @@
 
   gtag('config', 'UA-40932170-2');
 </script>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,20 +29,12 @@
   </head>
   <body>
     <header id="top" class="header"></header>
+   
     <div style="padding-bottom:15px;"></div>
-    
-    <!-- <div class="container"> -->
-            <!-- <div class="row">
-                    <div class="col-xs-7 col-md-7"> -->
-<!--                     
-                    </div>
-                    <div class="col-xs-5 col-md-5"> -->
-                            
-                
-                    <!-- </div>
-                    
-            </div>        
-    </div> -->
+
+    <blockquote style="padding-left: 10px;">
+            <label style="font-size: 20px;"> | ตัวเลือกที่ 1 ></label>
+    </blockquote>
     
     <div class="container">
     <p style="font-size: 18px;padding-left:3px;">เลือกอาคาร</p>
@@ -98,23 +89,37 @@
                         <div class="col-md-2"></div>
                 </div>      
     </div>
+    <div style="padding-bottom:10px;"></div>
+    <blockquote style="padding-left: 10px;">
+    <label style="font-size: 20px;"> | ตัวเลือกที่ 2 ></label>
+    </blockquote>
     <div class="container">
-            <form class="form-inline">
-                    <div class="form-group">
-                            <label style="font-size: 18px;padding-left:3px;">หาห้อง</label>
-                            <input type="text" class="form-control" id="search_room" placeholder="ใส่เลขห้อง เช่น 201">
-                            <a class="btn btn-default btn-lg" onclick="shRoom()">ห้องอยู่ไหน</a>
-                    </div>
-            </form>
-                            <div style="padding-bottom:12px;"></div>
-                            <div id="shShowRoom"></div>
-
+        <div class="row">
+            
+            <!-- <form class="form-inline">         -->
+                <div class="col-md-4 col-xs-7">
+                <div class="input-group" >  
+                                    <span class="input-group-addon">หาห้อง</span>
+                                    <input type="text" class="form-control" id="search_room" name="search_room" placeholder="ใส่เลขห้อง เช่น 201"></input>
+                </div>
+                </div>
+                <div class="col-md-4 col-xs-5">
+                            <button type="button" class="btn btn-default" onClick="shhRoom()">ห้องอยู่ไหน ?</button>
+                </div>
+                <div class="col-md-4"></div>
+                    <!-- </div> -->
+            <!-- </form>         -->
+        </div>
     </div>
-    <div style="padding-bottom:40px;"></div>
-        <!-- <div class="container"> -->
+    <div class="container">
+    <div style="padding-bottom:12px;"></div>
+    <div id="shShowRoom"></div>
+</div>
+    <div style="padding-bottom:17px;"></div>
+        
         <center><a class="btn btn-default btn-lg" href="../.././">เลือกคณะอื่น</a></center>
         <!-- <center><a class="btn btn-default btn-lg" href="../.././index.html">เลือกคณะอื่น</a></center> -->
-    <!-- </div>  -->
+    
     <div style="padding-bottom:40px;"></div>
         
 
@@ -132,56 +137,53 @@
 
         
         
-        function shRoom(){
-            var shroom = document.getElementById("search_room").value;
-            searchRoom(shroom);
-        }
+        
         
         function searchRoom(here){
-            var sh_show = document.getElementById("shShowRoom");
-            sh_show.innerHTML = "";
+            var shf_show = document.getElementById("shShowRoom");
+            shf_show.innerHTML = "";
             var first = 1;
-            var tbl = null;
+            var tblf = null;
             
             for(i=0;i<tower.length;i++){
                 // alert(tower[i][]);
                 for(j=0;j<tower[i][3].length;j++){
                     for(k=0;k<tower[i][3][j].length;k++){
                         console.log(tower[i][1],tower[i][3][j][k][0])
-                        if(tower[i][3][j][k][0] == here){
+                        if(tower[i][3][j][k][0] == here || tower[i][3][j][k][1] == here){
                                 
                                 if(first == 1){
                                 first = 0;
-                                tbl  = document.createElement('table');
-                                tbl.style.width  = "100%";
-                                tbl.className = "table table-bordered"; 
+                                tblf  = document.createElement('table');
+                                tblf.style.width  = "100%";
+                                tblf.className = "table table-bordered"; 
                                 
-                                var thead = tbl.createTHead();
-                                var the_tr = thead.insertRow();
-                                var the_td = the_tr.insertCell();
+                                var theadf = tblf.createTHead();
+                                var the_trf = theadf.insertRow();
+                                var the_tdf = the_trf.insertCell();
                                 
-                                the_td.appendChild(document.createTextNode("เจอ! ห้องแล้ว"));
-                                var the_td = the_tr.insertCell();
-                                the_td.appendChild(document.createTextNode("รายละเอียด"));
-                                var the_td = the_tr.insertCell();
-                                the_td.appendChild(document.createTextNode("เจอ! อาคารแล้ว"));
+                                the_tdf.appendChild(document.createTextNode("เจอ!ห้องแล้ว"));
+                                var the_tdf = the_trf.insertCell();
+                                the_tdf.appendChild(document.createTextNode("รายละเอียด"));
+                                var the_tdf = the_trf.insertCell();
+                                the_tdf.appendChild(document.createTextNode("เจอ!อาคารแล้ว"));
                                 
                             }
-                            var tbody = tbl.createTBody()    
-                                    var tr = tbody.insertRow();
+                            var tbodyf = tblf.createTBody()    
+                                    var trf = tbodyf.insertRow();
                                     for(var z = 0; z < 3; z++){     
                                         if(z==2){
-                                            var td = tr.insertCell();
-                                            td.appendChild(document.createTextNode(tower[i][1]));
+                                            var tdf = trf.insertCell();
+                                            tdf.appendChild(document.createTextNode(tower[i][1]));
                                         }
                                         else{
-                                            var td = tr.insertCell();
-                                            td.appendChild(document.createTextNode(tower[i][3][j][k][z]));
+                                            var tdf = trf.insertCell();
+                                            tdf.appendChild(document.createTextNode(tower[i][3][j][k][z]));
                                         }
                                                 
-                                                if(z==2 || z==1){ td.style.width = "42%"; }
-                                                else{ td.style.width = "16%"; }
-                                            td.style.border = "0px";
+                                                if(z==2 || z==1){ tdf.style.width = "42%"; }
+                                                else{ tdf.style.width = "16%"; }
+                                            tdf.style.border = "0px";
                                     }
                                     // td_end.appendChild(document.createTextNode(''));
                                     // td_end.style.width = "8%"
@@ -197,7 +199,22 @@
                 }
                }
             }
-            sh_show.appendChild(tbl);
+
+            
+            if(first == 1){
+
+                shf_show.innerHTML = "";
+                var noroomm = document.createTextNode("ไม่เจอห้องที่คุณต้องการ ครับ/ค่ะ"); 
+                shf_show.appendChild(noroomm);
+                shf_show.style.color = "#b33c00";
+                
+                
+
+            }
+            else{
+                shf_show.appendChild(tblf);
+                shf_show.style.color = "#000";
+            }
             
         }
 
@@ -220,7 +237,7 @@
             document.getElementById("nameTower").innerHTML ='ชื่ออาคาร : ' + tower[val][1];
             document.getElementById("numFloor").innerHTML ='มีจำนวนชั้น : ' + tower[val][2] + ' ชั้น';
             detectDevice(tower,val);
-            // document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
+            // document.getElementById("top").style.backgroundImage = "url(" + tower[val][4].replace('/img/eng/','/img/eng/mb/') + ")";
             
             
             // get room in the floor
@@ -263,6 +280,7 @@
           table_room.appendChild(noroom);
           noroom = document.createTextNode("ข้อมูลภายในชั้นนี้ยังไม่มีการอัพเดท ครับ/ค่ะ");
           table_room.appendChild(noroom);
+          table_room.style.color = "#b33c00";
         }
         
         // https://stackoverflow.com/questions/14643617/create-table-using-javascript
@@ -302,10 +320,15 @@
                 // td_end.style.width = "8%"
             }
             table_room.appendChild(tbl);
+            table_room.style.color = "#000";
         }
         // tableCreate();
 
-
+        function shhRoom(){
+            var shf_Room = document.getElementById("search_room");
+            shf_Room.innerHTML = searchRoom(shf_Room.value);
+            // searchRoom(document.getElementById("search_room").value);
+        }
         
     </script>
   </body>

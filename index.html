@@ -17,6 +17,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>KU NAI</title>
     <!-- Bootstrap -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/home.css" rel="stylesheet">
@@ -31,15 +32,17 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div style="padding-bottom:20px;"></div>
+              <div style="padding-bottom:20px;"></div>
               <center><img src="assets/img/ic_top.png" width="140px"/></center>
-                <center>
-                    <h1 style="font-size:70px">KU NAI</h1>
-                    </center>
-                    <div style="padding-bottom:40px;"></div>
+              <center><h1 style="font-size:70px">KU NAI</h1></center>
+              <!-- <div style="padding-bottom:20px;"></div>
+              <center><img src="assets/img/ic_raw.png" width="240px"/></center>
+              <center><h1 style="font-size:20px;padding-top:-20px;">KU NAI</h1></center> -->
+              <div style="padding-bottom:40px;"></div>
             <p style="font-size: 18px;padding-left:8px;">เลือกคณะที่ต้องการจะค้นหา</p>
             
-            <select class="form-control" onChange="window.location.href=this.value">
+            <!-- <select class="form-control" onChange="window.location.href=this.value"> -->
+            <select class="form-control" id="myselection" onChange="mySelection()" >
                 <option selected="selected" value="#">เลือกคณะ :</option>                 
                 <option value="./dep/eng/">คณะวิศวกรรมศาสตร์</option>     
             </select>
@@ -60,9 +63,12 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('my_selection').onchange = function() {
-    window.location.href = this.children[this.selectedIndex].getAttribute('href');
-}
+
+      function mySelection(){
+        var mysel = document.getElementById("myselection");
+        if(mysel.value != '#'){window.location.href= mysel.value;}
+        
+      }
     </script>
   </body>
 </html>
