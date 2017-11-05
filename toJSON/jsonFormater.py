@@ -1,8 +1,17 @@
-import jsonStarter as jser
-def formatted(s,t):
-    t += 1
-#    print(s)
-    if '[' in s:
-        return s
-    return s[0:s.index('[')] + '\n' + '\t'*t + formatted(s[s.index('['),len(s)])
-print(formatted(str(jser.baseList()),0))
+of = open("tower.json",'r')
+s = ""
+for line in of:
+    s = s + line
+of.close()
+nf = open("new-tower.json",'w')
+
+tabcount = 0
+for c in s:
+    if c == ']':
+        tabcount -= 1
+    if c != '[':
+        nf.write(c)
+    else:
+        tabcount += 1
+        nf.write('\n'+'  '*tabcount+c)
+
