@@ -133,17 +133,10 @@
         //var tower = JSON.parse(open("tower.json"));
         // alert(tower);
         // searchRoom(here);
-        var tower;
+        //var fs = require("fs");
+        var tower = json.parse(require("./tower.json"));
 
-        var oReq = new XMLHttpRequest();
-        oReq.onload = reqListener;
-        oReq.open("get", "tower.json", true);
-        oReq.send();
-
-        function reqListener(e) {
-            tower = JSON.parse(this.responseText);
-        }
-
+        
         
         
         
