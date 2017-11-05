@@ -221,7 +221,7 @@
         function detectDevice(tower,val){
         if (typeof window.orientation !== 'undefined'){
             // detect mobile
-            document.getElementById("top").style.backgroundImage = "url(" + tower[val][4].replace('/img/eng/','/img/eng/mb/') + ")";
+            document.getElementById("top").style.backgroundImage = "url(" + tower[val][4].replace('/img/eng/','/img/eng/mb/') + ") no-repeat center center scroll";
             document.getElementById("top").style.backgroundSize = "cover";
         }
         else{ 
