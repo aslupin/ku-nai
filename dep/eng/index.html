@@ -127,13 +127,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="tower.json"></script>
+    <!--<script type="text/javascript" src="tower.json"></script> -->
     <script>
         
-        var tower = JSON.parse(building);
+        //var tower = JSON.parse(open("tower.json"));
         // alert(tower);
         // searchRoom(here);
+        var tower;
 
+        var oReq = new XMLHttpRequest();
+        oReq.onload = reqListener;
+        oReq.open("get", "tower.json", true);
+        oReq.send();
+
+        function reqListener(e) {
+            tower = JSON.parse(this.responseText);
+        }
 
         
         
