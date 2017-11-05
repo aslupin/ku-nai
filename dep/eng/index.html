@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-40932170-2');
 </script>
     <meta charset="utf-8">
@@ -127,16 +126,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../assets/js/bootstrap.min.js"></script>
-    <!--<script type="text/javascript" src="tower.json"></script> -->
+    <script type="text/javascript" src="tower.json"></script>
     <script>
         
-        //var tower = JSON.parse(open("tower.json"));
+        var tower = JSON.parse(building);
         // alert(tower);
         // searchRoom(here);
-        //var fs = require("fs");
-        var tower = json.parse(require("./tower.json"));
-
-        
         
         
         
@@ -194,24 +189,20 @@
         
                             
                             
-
                         
                        
                    }
                 }
                }
             }
-
             
             if(first == 1){
-
                 shf_show.innerHTML = "";
                 var noroomm = document.createTextNode("ไม่เจอห้องที่คุณต้องการ ครับ/ค่ะ"); 
                 shf_show.appendChild(noroomm);
                 shf_show.style.color = "#b33c00";
                 
                 
-
             }
             else{
                 shf_show.appendChild(tblf);
@@ -219,7 +210,6 @@
             }
             
         }
-
         function detectDevice(tower,val){
         if (typeof window.orientation !== 'undefined'){
             // detect mobile
@@ -231,7 +221,6 @@
             document.getElementById("top").style.backgroundImage = "url(" + tower[val][4] + ")";
         }
         }
-
         function changeOption(){
             // get detail's tower
             var e = document.getElementById("ddlViewBy");
@@ -273,7 +262,6 @@
             if(max == 0){ tableNoRoom() }
             else{ tableCreate(max,shRoom); }
         }
-
         function tableNoRoom(){
           var table_room = document.getElementById("tableRoom");
           table_room.innerHTML = "";
@@ -294,7 +282,6 @@
             tbl.style.width  = "100%";
             tbl.className = "table table-bordered"
             
-
             for(var i = -1; i < max; i++){
                 var tbody = tbl.createTBody()
                 var thead = tbl.createTHead()
@@ -302,7 +289,6 @@
                 var the_tr = thead.insertRow();
               
                 for(var j = 0; j < 2; j++){
-
                         if(i == -1){
                           var the_td = the_tr.insertCell();
                           if(j==0){ the_td.appendChild(document.createTextNode("ห้อง"));}
@@ -326,7 +312,6 @@
             table_room.style.color = "#000";
         }
         // tableCreate();
-
         function shhRoom(){
             var shf_Room = document.getElementById("search_room");
             shf_Room.innerHTML = searchRoom(shf_Room.value);
